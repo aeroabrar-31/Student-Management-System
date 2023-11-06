@@ -1,0 +1,94 @@
+<div class="card" matRipple>
+
+        <h1>SignUp</h1>
+
+        <form (ngSubmit)="signupsubmit()">
+
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Full Name </mat-label>
+                <input matInput name="name" [(ngModel)]="signupdata.name" placeholder="Name.." required>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Email </mat-label>
+                <input matInput name="email" [(ngModel)]="signupdata.email" placeholder="Email" required>
+
+            </mat-form-field> <br>
+
+
+
+            <div>
+                <mat-form-field class="datefield">
+                    <mat-label>Date Of Birth</mat-label>
+                    <input matInput name="dob" [(ngModel)]="signupdata.dob" [matDatepicker]="picker" required>
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <br>
+
+
+            <div class="gender">
+                <!-- <mat-label>
+                    Gender :
+                </mat-label>
+                <mat-radio-group name="gender" aria-label="Gender" [(ngModel)]="signupdata.gender">
+                    <mat-radio-button value="male">Male</mat-radio-button>
+                    <mat-radio-button value="female">Female</mat-radio-button>
+                </mat-radio-group> -->
+
+                <mat-radio-group aria-label="Select an option" [(ngModel)]="signupdata.gender">
+                    <mat-label><b>Gender</b></mat-label>
+                    <mat-radio-button value="male">Male</mat-radio-button>
+                    <mat-radio-button value="female">Female</mat-radio-button>
+                    <mat-radio-button value="others">Others</mat-radio-button>
+                </mat-radio-group>
+
+            </div>
+
+            <br>
+
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Phone Number</mat-label>
+                <input matInput type="number" name="phone" [(ngModel)]="signupdata.phone" placeholder="Placeholder"
+                    required>
+
+            </mat-form-field>
+
+
+
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide?'password':'text'" name="password" [(ngModel)]="signupdata.password"
+                    placeholder="Placeholder" required>
+
+                <mat-icon matSuffix (click)="hide=!hide">
+                    {{hide?'visibility':'visibility_off'}}
+                </mat-icon>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput [type]="hide1?'password':'text'" name="confirmpassword"
+                    [(ngModel)]="signupdata.confirmpassword" placeholder="Placeholder" required>
+
+                <mat-icon matSuffix (click)="hide1=!hide1">
+                    {{hide1?'visibility':'visibility_off'}}
+                </mat-icon>
+
+            </mat-form-field>
+            <br>
+
+            <button mat-raised-button type="submit" color="primary">Register</button>
+            <button mat-raised-button type="reset" color="warn">Reset</button>
+            <!-- <button ></button> -->
+
+        </form>
+
+        <!-- {{signupdata | json}} -->
+
+
+    </div>

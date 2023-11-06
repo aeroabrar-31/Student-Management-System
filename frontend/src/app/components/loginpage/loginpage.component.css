@@ -1,0 +1,29 @@
+.card {
+    width: 40%;
+    margin: auto;
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+    border: 5px solid black;
+    border-radius: 10px;
+
+
+}
+
+
+
+.btn {
+    padding: 20px;
+    margin: 10px;
+}
+
+.field {
+    width: 70%;
+}
+
+.container {
+    /* margin-top: 30px; */
+    margin-top: 50px;
+    height: 100%;
+    /* border: 10px solid blue; */
+}

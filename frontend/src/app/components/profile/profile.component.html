@@ -1,0 +1,424 @@
+<!-- <h1>Abrar</h1> -->
+<!-- <app-navbar></app-navbar> -->
+
+<head>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+</head>
+
+
+
+<div *ngIf="isAdmin" class="container bootstrap snippets bootdey">
+    <h1 style="text-align: center;">Admin Profile</h1>
+    <div class="panel-body inf-content">
+        <div class="row">
+            <div class="col-md-4">
+                <img alt="" style="width:300px; margin-left: 10%;" title=""
+                    class="img-circle w-60 rounded-circle img-thumbnail isTooltip"
+                    src="https://bootdey.com/img/Content/avatar/avatar4.png" data-original-title="Usuario">
+                <ul title="Ratings" class="list-inline ratings text-center">
+                    <!-- <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li> -->
+
+                    <mat-icon>stars</mat-icon>
+                    <mat-icon>stars</mat-icon>
+                    <mat-icon>stars</mat-icon>
+                    <mat-icon>stars</mat-icon>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <div class="table-responsive">
+                    <table class="table table-user-information">
+                        <tbody>
+
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-user  text-primary"></span>
+                                        Name
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                    {{user.name}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-eye-open text-primary"></span>
+                                        Role
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                    Admin
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-bookmark text-primary"></span>
+                                        Username
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                    admin31
+                                </td>
+                            </tr>
+
+
+
+
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-envelope text-primary"></span>
+                                        Email
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                    {{user.email}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-earphone text-primary"></span>
+                                        Phone
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                    {{user.phone}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-calendar text-primary"></span>
+                                        Date Of Birth
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                    {{user.dob.substring(0,10)}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-user text-primary"></span>
+                                        Gender
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                    {{user.gender}}
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!isAdmin" class="container" id="main-container">
+    <h1 style="text-align: center;">Student Profile</h1>
+    <div class="main-body">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- {{mod}} -->
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <div class="ibox-content  no-padding border-left-right">
+                                <img alt="image" class="img-responsive" src={{images[1]}}>
+                            </div>
+                            <div class="mt-3">
+                                <h1>{{user.name}}</h1>
+                                <!-- <h2 class="text-muted font-size-sm">Student</h2> -->
+                                <!-- <button class="btn btn-primary">Edit Details</button> -->
+
+                                <!-- <button style="color: white;" (click)="updateStudent()" class="btn btn-primary tooltips"
+                                    data-placement="top" data-original-title="Edit"> <mat-icon>add</mat-icon> Edit
+                                    Details
+                                </button> -->
+
+                                <button style="padding: 20px;" mat-raised-button color="accent"
+                                    (click)="updateStudent()">
+                                    <mat-icon>mode_edit</mat-icon> Edit Detais
+                                </button>
+
+
+                                <!-- <button class="btn btn-outline-primary">Message</button> -->
+                            </div>
+                        </div>
+                        <!-- <hr class="my-4"> -->
+                        <ul class="list-group list-group-flush">
+                            <!-- <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="feather feather-globe me-2 icon-inline">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                                        <path
+                                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                                        </path>
+                                    </svg>Website</h6>
+                                <span class="text-secondary">https://bootdey.com</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="feather feather-github me-2 icon-inline">
+                                        <path
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                        </path>
+                                    </svg>Github</h6>
+                                <span class="text-secondary">bootdey</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="feather feather-twitter me-2 icon-inline text-info">
+                                        <path
+                                            d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                                        </path>
+                                    </svg>Twitter</h6>
+                                <span class="text-secondary">@bootdey</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="feather feather-instagram me-2 icon-inline text-danger">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>Instagram</h6>
+                                <span class="text-secondary">bootdey</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="feather feather-facebook me-2 icon-inline text-primary">
+                                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z">
+                                        </path>
+                                    </svg>Facebook</h6>
+                                <span class="text-secondary">bootdey</span>
+                            </li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <h2 class="mb-0">Full Name </h2>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <h2>: &nbsp; &nbsp; &nbsp;{{user.name}}</h2>
+                            </div>
+                        </div>
+                        <!-- <hr class="dashed"> -->
+
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <h2 class="mb-0">Roll no </h2>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <h2> : &nbsp; &nbsp; &nbsp;{{user.roll}}</h2>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <h2 class="mb-0">Email </h2>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <h2>: &nbsp; &nbsp; &nbsp;{{user.email}}</h2>
+                            </div>
+                        </div>
+                        <!-- <hr class="dashed"> -->
+
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <h2 class="mb-0">Phone </h2>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <h2>
+                                    : &nbsp; &nbsp; &nbsp; {{user.phone}}
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <h2 class="mb-0">Branch </h2>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <h2> : &nbsp; &nbsp; &nbsp;{{user.branch}}</h2>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <h2 class="mb-0">Year </h2>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <h2> : &nbsp; &nbsp; &nbsp;{{user.year}}</h2>
+                            </div>
+                        </div>
+                        <!-- <hr class="dashed"> -->
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <h2 class="mb-0">Gender </h2>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <h2> : &nbsp; &nbsp; &nbsp;{{user.gender}}</h2>
+                            </div>
+                        </div>
+                        <!-- <hr class="dashed"> -->
+
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <h2 class="mb-0">Date Of Birth </h2>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <h2>: &nbsp; &nbsp; &nbsp;{{user.dob.substring(0,10)}}</h2>
+                            </div>
+                        </div>
+                        <!-- <hr class="dashed"> -->
+
+
+                    </div>
+                </div>
+
+
+                <!-- <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="d-flex align-items-center mb-3">Project Status</h5>
+                                <p>Web Design</p>
+                                <div class="progress mb-3" style="height: 5px">
+                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 80%"
+                                        aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <p>Website Markup</p>
+                                <div class="progress mb-3" style="height: 5px">
+                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 72%"
+                                        aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <p>One Page</p>
+                                <div class="progress mb-3" style="height: 5px">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 89%"
+                                        aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <p>Mobile Template</p>
+                                <div class="progress mb-3" style="height: 5px">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 55%"
+                                        aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <p>Backend API</p>
+                                <div class="progress" style="height: 5px">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 66%"
+                                        aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="modal fade" id="updateEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="employeeEditModalLabel"
+    aria-hidden="true">
+    <p>Abrar</p>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="updateEmployeeModalLabel">Edit Employee </h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form #editForm="ngForm">
+
+
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" ngModel="{{editUser.name}}" name="name" class="form-control" id="name"
+                            aria-describedby="emailHelp" placeholder="Name">
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" ngModel="{{editUser.email}}" name="email" class="form-control" id="email"
+                            placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Date Of Birth</label>
+                        <input type="text" ngModel="{{editUser.dob}}" name="dob" class="form-control" id="dob"
+                            placeholder="dob">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" ngModel="{{editUser.phone}}" name="phone" class="form-control" id="phone"
+                            name="phone" placeholder="Phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <input type="text" ngModel="{{editUser.gender}}" name="gender" class="form-control" id="gender"
+                            placeholder="Image URL">
+                    </div>
+
+
+                    <div class="form-group">
+                        <!-- <mat-form-field appearance="outline" class="field"> -->
+                        <label for="password">Password</label>
+                        <input [type]="hide?'password':'text'" ngModel="{{editUser.password}}" name="password"
+                            class="form-control" id="password" placeholder="password">
+                        <!-- <mat-icon matSuffix (click)="hide=!hide">
+                            {{hide?'visibility':'visibility_off'}}
+                        </mat-icon> -->
+                        <!-- </mat-form-field> -->
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                        <button (click)="updateStudent()" data-dismiss="modal" class="btn btn-primary">Save
+                            changes</button>
+                    </div>
+
+                    <!-- {{editForm.value | json}} -->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

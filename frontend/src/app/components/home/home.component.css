@@ -1,0 +1,14 @@
+.container {
+    text-align: center;
+    margin-top: 0px;
+}
+
+.bg-image {
+
+    margin-top: -50px;
+
+    width: 100%;
+    height: 98vh;
+    background: url('src\\assets\\images\\student-management.jpg');
+    background-size: cover;
+}

@@ -1,0 +1,90 @@
+<!-- <mat-progress-bar mode="indeterminate"></mat-progress-bar> -->
+<div mat-dialog-title class="dialog-title">
+    <h1>{{data?'Edit':'Add'}} Student</h1>
+    <button mat-icon-button aria-label="close dialog" mat-dialog-close>
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<form [formGroup]="studentform">
+    <div mat-dialog-content class="content">
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" placeholder="Ex. Technical" formControlName="name">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Rollno</mat-label>
+                <input matInput type="text" placeholder="Ex. Technical" formControlName="roll">
+            </mat-form-field>
+
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" placeholder="Ex. test@gmail.com" formControlName="email">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Date of birth</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dob">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <br>
+        <div class="row">
+            <mat-radio-group aria-label="Select an option" formControlName="gender">
+                <mat-label><b>Gender : </b></mat-label>
+                <mat-radio-button value="male">Male</mat-radio-button>
+                <mat-radio-button value="female">Female</mat-radio-button>
+                <mat-radio-button value="others">Others</mat-radio-button>
+            </mat-radio-group>
+
+        </div>
+
+        <br>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Phone</mat-label>
+                <input matInput placeholder="Ex. 111" type="number" formControlName="phone">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Year</mat-label>
+                <mat-select formControlName="year">
+                    <mat-option *ngFor="let val of years" [value]="val">{{val}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Branch</mat-label>
+                <mat-select formControlName="branch">
+                    <mat-option *ngFor="let val of branches" [value]="val">{{val}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Ex. Google" [type]="hide?'password':'text'" formControlName="password">
+                <mat-icon matSuffix (click)="hide=!hide">
+                    {{hide?'visibility':'visibility_off'}}
+                </mat-icon>
+            </mat-form-field>
+        </div>
+
+    </div>
+    <div mat-dialog-actions class="action">
+        <button (click)="onFormSubmit()" mat-raised-button color="primary" type="submit">
+            <mat-icon>save</mat-icon>
+            Save</button>
+        <button mat-raised-button color="accent" type="reset">
+            <mat-icon>restore</mat-icon>
+            Reset</button>
+    </div>
+</form>

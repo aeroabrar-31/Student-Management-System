@@ -1,0 +1,14 @@
+.spacer {
+    flex: 1;
+}
+
+.items {
+    padding: 40px;
+    margin-top: 15px;
+    /* background-color: gainsboro; */
+}
+
+.login {
+    background-color: yellow;
+    color: aquamarine;
+}

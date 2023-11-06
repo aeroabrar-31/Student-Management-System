@@ -1,0 +1,87 @@
+<!-- <header>
+    <nav class="navbar navbar-expand-md navbar-dark"
+        style="background-image: linear-gradient(90.1deg, rgba(255, 85, 85, 1) 0.1%, rgba(85, 85, 255, 1) 100%);">
+        <div>
+            <a href="#" class="navbar-brand textsize"> Email Sender Application </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="collapse_Navbar"></div>
+
+
+
+
+
+        <button mat-raised-button color="warn" (click)="logout()">
+            <mat-icon>logout</mat-icon> logout
+        </button>
+
+    </nav>
+</header> -->
+<mat-toolbar color="primary" class="mat-elevation-z8">
+    <button (click)="drawer.toggle()" mat-icon-button class="example-icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span> &nbsp; Student Management System</span>
+    <!-- <span class="example-spacer"></span> -->
+
+
+
+
+
+
+
+    <div class="spacer"></div>
+
+    <button *ngIf="loggedIn()" class="login" mat-raised-button color="accent" (click)="signup()">
+        SignUp <mat-icon matSuffix>add_circle</mat-icon>
+    </button>
+    &nbsp;&nbsp;
+
+    <button *ngIf="loggedIn()" class="login" mat-raised-button style="background-color: rgb(9, 161, 9); color: white;"
+        (click)="login()">
+        Login <mat-icon matSuffix>login</mat-icon>
+    </button>
+
+
+
+
+
+    <button *ngIf="!loggedIn()" mat-raised-button style="background-color: rgb(248, 13, 13); color: white;"
+        (click)="logout()">
+        <mat-icon>logout</mat-icon> logout
+    </button>
+
+
+</mat-toolbar>
+
+<mat-drawer-container autosize>
+
+    <mat-drawer #drawer opened="false" mode="over" position="start"
+        style="width: 15%; background-color: black;  justify-content: center;">
+        <mat-nav-list style=" text-align: center;">
+            <mat-list-item class="items">
+                <button (click)="home()" mat-raised-button><mat-icon>home</mat-icon> Home</button>
+            </mat-list-item>
+
+            <mat-list-item class="items">
+                <button (click)="profile()" mat-raised-button><mat-icon>account_circle</mat-icon> Profile</button>
+            </mat-list-item>
+            <mat-list-item class="items">
+                <button (click)="dashboard()" mat-raised-button><mat-icon>dashboard</mat-icon> Dashboard</button>
+            </mat-list-item>
+            <mat-list-item class="items">
+                <button (click)="emailbomber()" mat-raised-button><mat-icon>email</mat-icon> Contact </button>
+            </mat-list-item>
+            <mat-list-item class="items">
+                <button mat-raised-button><mat-icon>help</mat-icon> Help</button>
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-drawer>
+
+    <mat-drawer-content>
+        <div style="min-height: 745px;">
+
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>

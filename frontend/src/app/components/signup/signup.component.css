@@ -1,0 +1,55 @@
+.container {
+    margin-top: 10px;
+}
+
+.card {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    background-color: white;
+    padding: 10px;
+    border: 5px solid black;
+}
+
+.inline {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.inline mat-form-field {
+
+    width: 48%;
+}
+
+.dialog-title {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+
+    margin-top: 10px;
+
+    margin-bottom: -8px;
+
+    /* border: 2px solid black; */
+}
+
+.row {
+    /* display: flex; */
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.row mat-form-field {
+
+    width: 94%;
+}
+
+
+
+.action button {
+    /* flex: 1; */
+    padding: 20px;
+    margin: 10px;
+}

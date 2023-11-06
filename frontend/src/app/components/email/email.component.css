@@ -1,0 +1,31 @@
+.card {
+
+    width: 60%;
+    /* margin-top: 200px; */
+    margin: auto;
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border: 3px solid rgb(79, 79, 249);
+    border-radius: 7px;
+
+}
+
+.spinner {
+    margin: auto;
+}
+
+.card button {
+    padding: 20px;
+    margin: 10px;
+}
+
+.container {
+    margin-top: 30px;
+
+    margin-bottom: 10px;
+}
+
+.field {
+    width: 90%;
+}

@@ -1,0 +1,54 @@
+<!-- <app-normalnavbar></app-normalnavbar> -->
+<div class="container">
+    <div class="card">
+
+        <mat-progress-bar *ngIf="progress" mode="indeterminate"></mat-progress-bar>
+
+        <mat-card>
+            <mat-card-content style="margin-top: 10px;">
+                <h1>Login</h1>
+                <br>
+
+                <form [formGroup]="loginform" (ngSubmit)="loginsubmit()">
+
+
+                    <mat-form-field appearance="outline" class="field">
+                        <mat-label> Email</mat-label>
+                        <input matInput name="email" formControlName="email" type="email" placeholder="Placeholder"
+                            required>
+
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="field">
+                        <mat-label>Password</mat-label>
+                        <input matInput name="password" formControlName="password" [type]="hide?'password':'text'"
+                            placeholder="password" required>
+
+                        <mat-icon matSuffix (click)="hide=!hide">
+                            {{hide?'visibility':'visibility_off'}}
+                        </mat-icon>
+
+                    </mat-form-field>
+
+
+
+
+                    <br>
+                    <h3>Forgot Password? <a routerLink="forgotpassword"> Click here</a></h3>
+                    <!-- <br> -->
+
+                    <button mat-raised-button type="submit" color="primary" class="btn">
+                        <mat-icon>login</mat-icon>
+                        Login</button>
+                    <a routerLink="signup" mat-raised-button color="accent" class="btn"> SignUp </a>
+
+                </form>
+
+                <!-- {{logindata | json}} -->
+            </mat-card-content>
+        </mat-card>
+
+
+
+    </div>
+</div>

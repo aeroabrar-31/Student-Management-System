@@ -1,0 +1,38 @@
+<!-- <app-navbar></app-navbar> -->
+<div class="container">
+    <div class="card">
+
+        <h1>{{isAdmin?'Send e-mail to all students':'Contact to Admin'}}</h1>
+
+        <form (ngSubmit)="doSubmitForm(isAdmin)">
+
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Subject</mat-label>
+                <input matInput name="subject" [(ngModel)]="data.subject" placeholder="enter your Subject" required
+                    autocomplete="off">
+
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width field">
+                <mat-label>Body of the Email</mat-label>
+                <textarea matInput required rows="10" name="body" [(ngModel)]="data.body"
+                    placeholder="Ex. It makes me feel..."></textarea>
+            </mat-form-field>
+
+            <mat-spinner *ngIf="flag" class="spinner"></mat-spinner>
+            <br>
+            <button [disabled]="flag" mat-raised-button type="submit" color="primary">
+                <mat-icon>send</mat-icon> Send</button>
+            <button mat-raised-button type="reset" color="accent"><mat-icon>restore</mat-icon> Reset </button>
+            <br>
+
+
+        </form>
+
+        <!-- {{data | json}} -->
+
+
+
+
+    </div>
+</div>

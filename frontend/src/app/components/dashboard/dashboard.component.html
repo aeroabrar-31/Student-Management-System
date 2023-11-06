@@ -1,0 +1,204 @@
+<!-- <app-navbar></app-navbar> -->
+
+<head>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"> -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css"
+        integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script> -->
+
+
+</head>
+
+<div class="heading">
+
+    <form>
+
+        <mat-label>
+            <h1>Welcome to Admin Dashboard</h1>
+        </mat-label>
+        <mat-form-field appearance="outline" class="field">
+            <mat-label>Search Students</mat-label>
+
+            <input type="search" matInput (ngModelChange)="searchUsers(key.value)" #key="ngModel" ngModel name="key"
+                placeholder="type anything...">
+
+
+
+            <mat-icon matSuffix>person_search</mat-icon>
+
+        </mat-form-field>
+
+        <button (click)="addNew()" style="padding: 26px; margin-top: -5px;" mat-raised-button color="primary">
+            <mat-icon>assignment_ind</mat-icon>
+            Add New Student</button>
+
+
+
+    </form>
+
+</div>
+
+<mat-divider></mat-divider>
+
+<div class="container" id="main-container">
+
+
+
+    <div class="row">
+        <div *ngFor="let user of users; let i=index" class="col-md-6 col-xl-4 ">
+
+
+            <div class="card">
+                <div class="card-body row">
+
+                    <div class="col-6">
+
+                        <img src='{{images[i]}}' alt="image" class="img-fluid rounded-circle w-60">
+                    </div>
+                    <div style="text-align: center;" class="col-6 card-title align-self-center mb-0">
+                        <h2>{{user?.name}}</h2>
+
+                        <!-- <p class="m-0">{{employee?.jobTitle}}</p> -->
+                    </div>
+                </div>
+
+
+                <ul class="list-group">
+                    <li class="list-group-item"><i class="fa fa-envelope fa-lg float-right" style="color: black;"></i>
+                        <h4>{{user?.email}}</h4>
+                    </li>
+                    <li class="list-group-item"><i class="fa fa-phone fa-lg float-right" style="color: black;"></i>
+                        <h4>{{user?.phone}}</h4>
+                    </li>
+                    <li class="list-group-item"><i class="fa fa-user-tie fa-lg float-right"
+                            style="color: rgb(0, 0, 0);"></i>
+                        <!-- <span> -->
+                        <h4>{{user.roll}} - {{user?.branch}} - {{user.year}} Year</h4>
+                        <!-- </span> -->
+
+                    </li>
+                </ul>
+                <div class="card-body ">
+                    <div class="float-right btn-group btn-group-sm">
+
+                        <!-- <a (click)="edit(user.id)" class="btn btn-primary tooltips" data-placement="top"
+                            data-original-title="Edit"><i class="fa fa-pencil"></i> </a> -->
+
+                        <!-- <a (click)="onOpenModal(user, 'edit')" class="btn btn-primary tooltips" data-placement="top"
+                            data-original-title="Edit"><i class="fa fa-pencil"></i> </a> -->
+
+                        <a (click)="dialogopen(user)" class="btn btn-primary tooltips" data-placement="top"
+                            data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+
+                        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Launch demo modal
+                        </button> -->
+                        <span style="padding: 2px;"></span>
+
+
+                        <button (click)="delete(user.id)" class="btn btn-secondary tooltips" data-placement="top"
+                            data-original-title="Delete"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- 
+<div class="modal fade" id="updateEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="employeeEditModalLabel"
+    aria-hidden="true">
+    <p>Abrar</p>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="updateEmployeeModalLabel">Edit Employee </h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form #editForm="ngForm">
+
+
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" ngModel="{{editUser.name}}" name="name" class="form-control" id="name"
+                            aria-describedby="emailHelp" placeholder="Name">
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" ngModel="{{editUser.email}}" name="email" class="form-control" id="email"
+                            placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Date Of Birth</label>
+                        <input type="text" ngModel="{{editUser.dob}}" name="dob" class="form-control" id="dob"
+                            placeholder="dob">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" ngModel="{{editUser.phone}}" name="phone" class="form-control" id="phone"
+                            name="phone" placeholder="Phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <input type="text" ngModel="{{editUser.gender}}" name="gender" class="form-control" id="gender"
+                            placeholder="Image URL">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" ngModel="{{editUser.password}}" name="password" class="form-control"
+                            id="password" placeholder="password">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                        <button (click)="onUpdateEmployee(editForm.value)" data-dismiss="modal"
+                            class="btn btn-primary">Save changes</button>
+                    </div>
+
+                    {{editForm.value | json}}
+                </form>
+            </div>
+        </div>
+    </div>
+</div> -->
